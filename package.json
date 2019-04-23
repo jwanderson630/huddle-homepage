@@ -1,0 +1,19 @@
+{
+  "name": "huddle-homepage",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel-bundler index.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.3",
+    "sass": "^1.17.4"
+  },
+  "dependencies": {
+    "gsap": "^2.1.2"
+  }
+}

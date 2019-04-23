@@ -1,0 +1,351 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-size: 10px;
+  font-family: "Open Sans", sans-serif;
+  --color-pink: #ff52bf;
+  --color-violet: hsl(265, 100%, 66%);
+  --light-grayish-blue: hsl(214, 64%, 98%);
+  --mid-grayish-blue: hsl(208, 11%, 55%);
+  --very-dark-cyan: hsl(192, 100%, 9%);
+  margin: 0;
+  padding: 0;
+  background-color: var(--light-grayish-blue);
+  width: 100%;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Poppins", sans-serif;
+  color: var(--very-dark-cyan);
+}
+
+h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-top: 6rem;
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  font-size: 2.4rem;
+  font-weight: 400;
+  margin-top: 5rem;
+  margin-bottom: 1.5rem;
+  @media (min-width: 768px) {
+    font-size: 2.8rem;
+  }
+}
+
+h3 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-size: 3.2rem;
+  font-weight: 600;
+  @media (min-width: 500px) {
+    font-size: 3.6rem;
+  }
+}
+
+h4 {
+  color: white;
+  margin-top: 0;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+p,
+ul,
+ol {
+  font-size: 1.5rem;
+  color: var(--mid-grayish-blue);
+  line-height: 1.5;
+  margin: 1.5rem 0;
+  @media (min-width: 500px) {
+    font-size: 1.8rem;
+  }
+  &.text-white {
+    color: white;
+  }
+}
+
+img {
+  width: 100%;
+}
+
+.button-row {
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  font-size: 1.2rem;
+  background-color: var(--color-pink);
+  color: white;
+  padding: 1rem 3rem;
+  border-radius: 0.2rem;
+  text-decoration: none;
+  box-shadow: inset 0 0 1px 0 var(--color-violet), 1px 1px 10px 1px #ff52bf44;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  transform: scale(1) translateY(0);
+  outline: 0;
+  border: 0;
+  &:hover {
+    transform: scale(1.05) translateY(-1px);
+    background-color: lighten(#ff52bf, 1);
+  }
+  @media (min-width: 500px) {
+    padding: 1.3rem 5rem;
+  }
+}
+
+.button.white {
+  background-color: white;
+  box-shadow: inset 0 0 1px 0 var(--color-violet),
+    1px 1px 10px 1px rgba(154, 82, 255, 0.1);
+  color: var(--color-violet);
+}
+
+.card {
+  background-color: white;
+  padding: 4rem 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 1px 1px 20px 3px rgba(154, 82, 255, 0.1);
+  @media (min-width: 768px) {
+    padding: 6rem 4rem;
+  }
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 90vw;
+}
+
+header.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 0;
+  margin-bottom: 5rem;
+  width: 90vw;
+  @media (min-width: 768px) {
+    margin-bottom: 10rem;
+  }
+}
+
+.logo {
+  width: 140px;
+  @media (min-width: 520px) {
+    width: auto;
+  }
+}
+
+main {
+  position: relative;
+  z-index: 5;
+  display: grid;
+  grid-template-columns: [left-side] 1fr [main-start] 4fr [main-end] 1fr [right-side];
+  grid-template-rows: repeat(5, auto);
+}
+
+header {
+  position: relative;
+  z-index: 5;
+  grid-row: 1/2;
+}
+
+#hero {
+  grid-row: 2/3;
+  text-align: center;
+  margin-bottom: 20rem;
+  grid-column: left-side / right-side;
+  @media (min-width: 768px) {
+    grid-column: main-start;
+    margin-bottom: 35rem;
+  }
+}
+
+#features {
+  grid-row: 3/4;
+  grid-column: left-side / right-side;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+  grid-gap: 8rem;
+  align-items: center;
+  margin-bottom: 20rem;
+  text-align: center;
+  @media (min-width: 768px) {
+    grid-template-columns: [image] 1fr [words] 1fr;
+    grid-template-rows: 1fr;
+    text-align: left;
+    margin-bottom: 35rem;
+  }
+}
+
+#try {
+  grid-row: 4/5;
+  grid-column: left-side / right-side;
+  text-align: center;
+  margin-bottom: 20rem;
+  @media (min-width: 768px) {
+    grid-column: main-start;
+    margin-bottom: 35rem;
+  }
+}
+
+#footer {
+  background-color: var(--very-dark-cyan);
+  color: white;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  .container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 3rem;
+    grid-template-areas:
+      "logo"
+      "links"
+      "form"
+      "social";
+    @media (min-width: 768px) {
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-areas:
+        "logo logo logo"
+        "social links form";
+    }
+  }
+  p,
+  ul,
+  ol,
+  li,
+  a {
+    font-size: 1.4rem;
+  }
+}
+
+.footer-logo {
+  grid-column: 1 / -1;
+  grid-area: logo;
+}
+
+.footer-social {
+  grid-area: social;
+  .social-link {
+    width: 2.5rem;
+    margin-right: 2rem;
+  }
+}
+
+.footer-links {
+  grid-area: links;
+  display: grid;
+  grid-template-columns: 1fr;
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li {
+      margin-bottom: 1.5rem;
+      a {
+        color: white;
+        margin: 0;
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+    &:last-child {
+      li:list-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2rem;
+  }
+}
+
+.footer-form {
+  grid-area: form;
+  input {
+    padding: 0.2rem 0.5rem;
+    width: 100%;
+    border-radius: 0.4rem;
+    border: 0;
+    height: 4rem;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  .button-row {
+    justify-content: flex-end;
+  }
+  button {
+    cursor: pointer;
+    width: 100%;
+  }
+  @media (min-width: 768px) {
+    button {
+      width: auto;
+    }
+  }
+}
+
+.block {
+  position: absolute;
+  border-radius: 15vw;
+  @media (min-width: 500px) {
+    border-radius: 10vw;
+  }
+}
+
+.block.purple {
+  z-index: 2;
+  top: -8vw;
+  right: -75vw;
+  width: 122vw;
+  height: 90vw;
+  transform: rotate(60deg);
+  background: linear-gradient(var(--color-violet), var(--color-pink));
+  @media (min-width: 720px) {
+    transform: rotate(45deg);
+    top: -45vw;
+    right: -45vw;
+    width: 90vw;
+    height: 90vw;
+  }
+}
+
+.block.white {
+  transform: rotate(-25deg);
+  background: white;
+  top: 8rem;
+  right: -10rem;
+  z-index: 1;
+  width: 125rem;
+  height: 80rem;
+  @media (min-width: 720px) {
+    top: 20rem;
+    right: 3rem;
+  }
+  @media (min-width: 1024px) {
+    right: 15rem;
+  }
+}
+
+footer {
+  background-color: var(--very-dark-cyan);
+}
